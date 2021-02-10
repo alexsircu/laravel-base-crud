@@ -17,7 +17,7 @@ class CreateBeersTable extends Migration
             $table->id();
             $table->string('brand', 50);
             $table->float('price', 6, 2);
-            $table->tinyInteger('alcohol_content');
+            $table->float('alcohol_content', 5, 2);
             $table->string('nation', 30);
             $table->text('description');
             $table->timestamps();
