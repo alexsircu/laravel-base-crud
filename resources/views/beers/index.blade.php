@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.main')
 
-        <title>Laravel</title>
-
-        <link rel="stylesheet" href="{{ asset("css/app.css") }}">
-
-    </head>
-    <body>
-      <div class="container p-3 my-3">
+@section('content')
+    <div class="container p-3 my-3">
         <h1>BIRRE ARTIGIANALI</h1>      
-        <table class="table table-stripped table-bordered">
+        <table class="table table-striped table-bordered">
           <thead class="thead-dark">
             <tr>
               <th>ID</th>
@@ -39,5 +30,4 @@
           </tbody>
         </table>
       </div>
-    </body>
-</html>
+@endsection
