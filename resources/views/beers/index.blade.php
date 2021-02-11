@@ -33,3 +33,9 @@
         </table>
       </div>
 @endsection
+
+@section('footer')
+    <div class="container text-right">
+      <a href="{{ route('beers.create') }}" class="btn btn-primary">Aggiungi una nuova birra</a>
+    </div>
+@endsection
