@@ -13,3 +13,9 @@
     </table>
   </div>
 @endsection
+
+@section('footer')
+  <div class="container text-right">
+    <a href="{{ route('beers.index') }}" class="btn btn-secondary btn-lg">Torna indietro</a>
+  </div>
+@endsection

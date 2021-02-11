@@ -13,6 +13,7 @@
               <th>Nation</th>
               <th>Created at</th>
               <th>Updated at</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -25,6 +26,7 @@
                 <td>{{ $beer->nation }}</td>
                 <td>{{ $beer->created_at }}</td>
                 <td>{{ $beer->updated_at }}</td>
+                <td><a href="{{ route('beers.show', $beer->id) }}" class="btn btn-outline-dark">Info</a></td>
               </tr>    
             @endforeach
           </tbody>
