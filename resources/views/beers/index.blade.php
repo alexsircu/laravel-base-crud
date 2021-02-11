@@ -10,10 +10,34 @@
 
     </head>
     <body>
-      <div class="container">
-        @foreach ($beers as $beer)
-          <p>{{ $beer->id }}, <strong>{{ $beer->brand }}</strong>, {{ $beer->price }}, {{ $beer->alcohol_content }}, {{ $beer->nation }}, {{ $beer->description }}</p>
-        @endforeach
+      <div class="container p-3 my-3">
+        <h1>BIRRE ARTIGIANALI</h1>      
+        <table class="table table-stripped table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th>ID</th>
+              <th>Brand</th>
+              <th>Price</th>
+              <th>Alcohol content</th>
+              <th>Nation</th>
+              <th>Created at</th>
+              <th>Updated at</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach ($beers as $beer)
+              <tr>
+                <td>{{ $beer->id }}</td>
+                <td>{{ $beer->brand }}</td>
+                <td>{{ $beer->price }}</td>
+                <td>{{ $beer->alcohol_content }}</td>
+                <td>{{ $beer->nation }}</td>
+                <td>{{ $beer->created_at }}</td>
+                <td>{{ $beer->updated_at }}</td>
+              </tr>    
+            @endforeach
+          </tbody>
+        </table>
       </div>
     </body>
 </html>

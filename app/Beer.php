@@ -11,6 +11,8 @@ class Beer extends Model
         'price',
         'alcohol_content',
         'nation',
-        'description'
+        'description',
+        'created_at',
+        'updated_at'
     ];
 }
