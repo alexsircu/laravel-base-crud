@@ -3,6 +3,15 @@
 @section('content')
     <div class="container">
       <h1>Inserisci una nuova tipologia di birra</h1>
+       @if ($errors->any())
+          <div class="alert alert-danger">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
+      @endif
       <form action="{{ route('beers.store') }}" method="POST">
         @csrf
         @method('POST')
@@ -28,6 +37,7 @@
         </div>
         <div class="form-group">
         <button type="submit" class="btn btn-primary">Aggiungi</button>
+        <a href="{{ route('beers.index') }}" class="btn btn-primary">Indietro</a>
       </form>
     </div>
 @endsection

@@ -36,14 +36,22 @@ class BeerController extends Controller
      */
     public function store(Request $request)
     {
+        // validazione
+        $request->validate([
+            'brand' => 'required',
+            'price' => 'required|numeric',
+            'alcohol_content' => 'required',
+            'nation' => 'required'
+        ]);
         $data = $request->all();
         // dd($data);
         $beer = new Beer();
-        $beer->brand = $data["brand"];
-        $beer->price = $data["price"];
-        $beer->alcohol_content = $data["alcohol_content"];
-        $beer->nation = $data["nation"];
-        $beer->description = $data["description"];
+        // $beer->brand = $data["brand"];
+        // $beer->price = $data["price"];
+        // $beer->alcohol_content = $data["alcohol_content"];
+        // $beer->nation = $data["nation"];
+        // $beer->description = $data["description"];
+        $beer->fill($data);
         $beer->save();
 
         return redirect()->route('beers.index');
