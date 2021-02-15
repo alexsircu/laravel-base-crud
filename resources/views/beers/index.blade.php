@@ -2,7 +2,12 @@
 
 @section('content')
     <div class="container p-3 my-3">
-        <h1>BIRRE ARTIGIANALI</h1>      
+        <h1>BIRRE ARTIGIANALI</h1> 
+        @if (session('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif     
         <table class="table table-striped table-bordered">
           <thead class="thead-dark">
             <tr>
@@ -29,7 +34,11 @@
                 <td>
                   <a href="{{ route('beers.show', $beer->id) }}" class="btn"><i class="fas fa-info"></i></a>
                   <a href="{{ route('beers.edit', $beer->id) }}" class="btn"><i class="far fa-edit"></i></a>
-                  <a href="{{ route('beers.delete', $beer->id) }}" class="btn"><i class="far fa-trash-alt"></i></a>
+                  <form action="{{ route('beers.destroy', $beer) }}" method="POST" style="display: inline-block">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn"><i class="far fa-trash-alt"></i></button>
+                  </form>
                 </td>
               </tr>    
             @endforeach

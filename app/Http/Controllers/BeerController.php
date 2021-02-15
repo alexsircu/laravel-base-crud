@@ -54,7 +54,7 @@ class BeerController extends Controller
         $beer->fill($data);
         $beer->save();
 
-        return redirect()->route('beers.index');
+        return redirect()->route('beers.index')->with('message', 'Nuova birra aggiunta');
     }
 
     /**
@@ -100,7 +100,7 @@ class BeerController extends Controller
 
         $beer->update($data);
 
-        return redirect()->route('beers.index');
+        return redirect()->route('beers.index')->with('message', 'Campo aggiornato correttamente');
     }
 
     /**
@@ -109,8 +109,10 @@ class BeerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Beer $beer)
     {
-        //
+        $beer->delete();
+        
+        return redirect()->route('beers.index');
     }
 }
