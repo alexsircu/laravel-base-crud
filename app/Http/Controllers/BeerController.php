@@ -75,9 +75,9 @@ class BeerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Beer $beer)
     {
-        //
+        return view('beers.edit', compact('beer'));
     }
 
     /**
@@ -87,9 +87,20 @@ class BeerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Beer $beer)
     {
-        //
+        $data = $request->all();
+
+        $request->validate([
+            'brand' => 'required',
+            'price' => 'required|numeric',
+            'alcohol_content' => 'required',
+            'nation' => 'required'
+        ]);
+
+        $beer->update($data);
+
+        return redirect()->route('beers.index');
     }
 
     /**

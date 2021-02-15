@@ -26,7 +26,11 @@
                 <td>{{ $beer->nation }}</td>
                 <td>{{ $beer->created_at }}</td>
                 <td>{{ $beer->updated_at }}</td>
-                <td><a href="{{ route('beers.show', $beer->id) }}" class="btn btn-outline-dark">Info</a></td>
+                <td>
+                  <a href="{{ route('beers.show', $beer->id) }}" class="btn"><i class="fas fa-info"></i></a>
+                  <a href="{{ route('beers.edit', $beer->id) }}" class="btn"><i class="far fa-edit"></i></a>
+                  <a href="{{ route('beers.delete', $beer->id) }}" class="btn"><i class="far fa-trash-alt"></i></a>
+                </td>
               </tr>    
             @endforeach
           </tbody>
